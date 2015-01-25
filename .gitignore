@@ -1,4 +1,11 @@
 *.o
 *.out
 *~
+float_integer_speed
+thread
+thread_join
+thread_cond
+float_integer_speed
+complex_integer
+serial_port
 
