@@ -15,17 +15,18 @@
 
 
 
-serialport: serial_port_test.o
+serial_port: serial_port_test.o
 	g++ -L /usr/lib  -o serial_port.out serial_port_test.cpp
 
-setclock: clock_configuration.o
-	g++ -L /usr/lib -l uhd -o clock_configuration clock_configuration.cpp
+# Multiple threads are created without join
+thread: thread_test.o
+	g++ -L /usr/lib  -lpthread -o thread_test.out thread_test.cpp
 
-rxtest: receiver_test.o uhd_utilities.o task_sampling.o task_demod.o
-	g++ -g -L /usr/lib -l uhd -lpthread -o rxtest  receiver_test.cpp uhd_utilities.cpp task_sampling.cpp task_demod.cpp
+thread_join: thread_join_test.o
+	g++ -g -L /usr/lib  -lpthread -o thread_join_test.out thread_join_test.cpp
 	
-serialtest: serial_port_test.o 	
-	g++ -g -L /usr/lib -l uhd -o serial_port_test serial_port_test.cpp
+thread_cond: thread_cond_test.o 	
+	g++ -g -L /usr/lib  -lpthread -o thread_cond_test.out thread_cond_test.cpp
 	
 clean:
 	rm *.o
