@@ -15,13 +15,13 @@
 
 IDIR =.
 CC =g++
-CXXFLAGS = -std=gnu++0x -I$(IDIR)
+CXXFLAGS = -std=gnu++11 -I$(IDIR)
 LINKFLAGS =
 
 OBJDIR = obj
 LIBDIR = /usr/lib
 
-LIBS= -lpthread
+LIBS= -lstdc++ -lpthread -lm
 
 $(OBJDIR)/%.o:%.cpp 
 	$(CC) -c -o $@ $< $(CXXFLAGS)
