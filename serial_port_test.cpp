@@ -1,12 +1,13 @@
 #include <termios.h>
       #include <stdio.h>
+		#include <iostream>
 	  #include <cstdlib>
       #include <unistd.h>
       #include <fcntl.h>
       #include <sys/signal.h>
       #include <sys/types.h>
         
-      #define BAUDRATE B115200
+      #define BAUDRATE B9600
       #define MODEMDEVICE "/dev/ttyUSB0"
       #define _POSIX_SOURCE 1 /* POSIX compliant source */
       #define FALSE 0
@@ -59,7 +60,8 @@
          
         /* loop while waiting for input. normally we would do something
            useful here */ 
-        while (STOP==FALSE) {
+		std::cout << "Waiting for characters" << std::endl;
+		while (STOP==FALSE) {
          usleep(100000);
           /* after receiving SIGIO, wait_flag = FALSE, input is available
              and can be read */

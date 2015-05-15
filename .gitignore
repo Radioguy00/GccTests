@@ -8,4 +8,5 @@ thread_cond
 float_integer_speed
 complex_integer
 serial_port
+*.swp
 
