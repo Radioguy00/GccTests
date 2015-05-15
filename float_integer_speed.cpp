@@ -9,6 +9,7 @@
 #include <ctime>
 #include <iostream>
 #include <cstdint>
+#include <complex>
 
 template<class T>
 void speed_test(size_t nbr)
@@ -45,7 +46,7 @@ int main (int argc, char ** argv)
 		cout << "Testing 32 bits integers...\n";
 		speed_test<uint32_t>(500000);	
 		t = clock()- t;
-		cout << "32 Bits Integer Computation: " << ((float)t) / CLOCKS_PER_SEC << " seconds" << '\n';
+		cout << " : " << ((float)t) / CLOCKS_PER_SEC << " seconds" << '\n';
 	}
 
 	// 16 bits integer test
@@ -55,7 +56,7 @@ int main (int argc, char ** argv)
 		cout << "Testing 16 bits integers...\n";
 		speed_test<uint16_t>(500000);	
 		t = clock()- t;
-		cout << "16 Bits Integer Computation: " << ((float)t) / CLOCKS_PER_SEC << " seconds" << '\n';
+		cout << " : " << ((float)t) / CLOCKS_PER_SEC << " seconds" << '\n';
 	}
 
 	// Floating point test
@@ -65,7 +66,7 @@ int main (int argc, char ** argv)
 		cout << "Testing floats...\n";
 		speed_test<float>(500000);	
 		t = clock()- t;
-		cout << "Float Computation: " << ((float)t) / CLOCKS_PER_SEC << " seconds" << '\n';
+		cout << " : " << ((float)t) / CLOCKS_PER_SEC << " seconds" << '\n';
 	}
 	// Double  test
 	{
@@ -74,9 +75,48 @@ int main (int argc, char ** argv)
 		cout << "Testing doubles...\n";
 		speed_test<double>(500000);	
 		t = clock()- t;
-		cout << "Double Computation: " << ((float)t) / CLOCKS_PER_SEC << " seconds" << '\n';
+		cout << " : " << ((float)t) / CLOCKS_PER_SEC << " seconds" << '\n';
 	}
+
+	size_t complex_test_duration = 100000;
 	
+	// Complex Double Test 
+	{
+		clock_t t;
+		t = clock();
+		cout << "Testing complex doubles...\n";
+		speed_test<std::complex<double>>(complex_test_duration);	
+		t = clock()- t;
+		cout << " : " << ((float)t) / CLOCKS_PER_SEC << " seconds" << '\n';
+	}
+	// Complex Float Test
+	{
+		clock_t t;
+		t = clock();
+		cout << "Testing complex floats...\n";
+		speed_test<std::complex<float>>(complex_test_duration);	
+		t = clock()- t;
+		cout << " : " << ((float)t) / CLOCKS_PER_SEC << " seconds" << '\n';
+	}
+	// Complex int32 Test
+	{
+		clock_t t;
+		t = clock();
+		cout << "Testing complex int32...\n";
+		speed_test<std::complex<int32_t>>(complex_test_duration);	
+		t = clock()- t;
+		cout << " : "  << ((float)t) / CLOCKS_PER_SEC << " seconds" << '\n';
+	}
+	// Complex int16  Test
+	{
+		clock_t t;
+		t = clock();
+		cout << "Testing complex int16...\n";
+		speed_test<std::complex<int16_t>>(complex_test_duration);	
+		t = clock()- t;
+		cout << " : " <<  ((float)t) / CLOCKS_PER_SEC << " seconds" << '\n';
+	}
+
 	return 0;
 }
 
