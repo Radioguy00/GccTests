@@ -47,7 +47,7 @@ serial_port: $(OBJ_SP)
 _OBJ_BT = thread_test.o
 OBJ_BT = $(patsubst %, $(OBJDIR)/%, $(_OBJ_BT))
 
-thread: $(OBJ_BT)
+thread_test: $(OBJ_BT)
 	$(CC) -g -L $(LIBDIR)  -o $@ $^  $(LINKFLAGS) $(LIBS)
 
 ############## THREAD JOIN TEST
@@ -73,6 +73,23 @@ OBJ_CI = $(patsubst %, $(OBJDIR)/%, $(_OBJ_CI))
 
 complex_integer: $(OBJ_CI) 	
 	$(CC) -g -L $(LIBDIR)  -o $@ $^  $(LINKFLAGS) $(LIBS)
+
+############ Standard C++ threads
+
+_OBJ_ST = stl_thread.o
+OBJ_ST = $(patsubst %, $(OBJDIR)/%, $(_OBJ_ST))
+
+stl_thread: $(OBJ_ST)
+	$(CC) -g -L $(LIBDIR) -o $@ $^ $(LINKFLAGS) $(LIBS)  
+	
+	
+############ Standard C++ clocks
+
+_OBJ_CL = clock_test.o
+OBJ_CL = $(patsubst %, $(OBJDIR)/%, $(_OBJ_CL))
+
+clock_test: $(OBJ_CL)
+	$(CC) -g -L $(LIBDIR) -o $@ $^ $(LINKFLAGS) $(LIBS)  -lrt
 
 .PHONY: clean
 
