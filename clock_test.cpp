@@ -28,8 +28,8 @@ int main()
 	auto hr2 = std::chrono::high_resolution_clock::now();
 	//auto sc2 = std::chrono::steady_clock::now();
 	
-	std::cout << "System Clock: " << std::chrono::duration_cast<std::chrono::nanoseconds>(st2-st1).count() << '\n';
-	std::cout << "High Resolution Clock: " << std::chrono::duration_cast<std::chrono::nanoseconds>(hr2-hr1).count()  << '\n';
+	std::cout << "System Clock: " << std::chrono::duration_cast<std::chrono::nanoseconds>(st2-st1).count() << " ns\n";
+	std::cout << "High Resolution Clock: " << std::chrono::duration_cast<std::chrono::nanoseconds>(hr2-hr1).count()  << " ns\n";
 	//std::cout << "System Clock: " << "Is steady: " << std::boolalpha << std::chrono::system_clock::is_steady << '\n';
 	//std::cout << "High Resolution Clock: " << "Is steady: " << std::boolalpha << std::chrono::high_resolution_clock::is_steady << '\n';
 	//std::cout << "Steady Clock: " << duration_cast<double>(sc2-sc1).count()  << '\n';
