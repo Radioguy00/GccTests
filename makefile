@@ -21,7 +21,7 @@ LINKFLAGS =
 OBJDIR = obj
 LIBDIR = /usr/lib
 
-LIBS= -lpthread
+LIBS= -lpthread 
 
 $(OBJDIR)/%.o:%.cpp 
 	$(CC) -c -o $@ $< $(CXXFLAGS)
@@ -90,6 +90,15 @@ OBJ_CL = $(patsubst %, $(OBJDIR)/%, $(_OBJ_CL))
 
 clock_test: $(OBJ_CL)
 	$(CC) -g -L $(LIBDIR) -o $@ $^ $(LINKFLAGS) $(LIBS)  -lrt
+	
+	
+############ Ncurses
+
+_OBJ_CUR = ncurses_test.o
+OBJ_CUR = $(patsubst %, $(OBJDIR)/%, $(_OBJ_CUR))
+
+ncurses_test: $(OBJ_CUR)
+	$(CC) -g -L $(LIBDIR) -o $@ $^ $(LINKFLAGS) $(LIBS)  -lncurses	
 
 .PHONY: clean
 
