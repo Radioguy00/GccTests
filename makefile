@@ -100,6 +100,15 @@ OBJ_CUR = $(patsubst %, $(OBJDIR)/%, $(_OBJ_CUR))
 ncurses_test: $(OBJ_CUR)
 	$(CC) -g -L $(LIBDIR) -o $@ $^ $(LINKFLAGS) $(LIBS)  -lncurses	
 
+############ Menu
+
+_OBJ_MEN = menu_test.o
+OBJ_MEN = $(patsubst %, $(OBJDIR)/%, $(_OBJ_MEN))
+
+menu_test: $(OBJ_MEN)
+	$(CC) -g -L $(LIBDIR) -o $@ $^ $(LINKFLAGS) $(LIBS)  -lncurses	-lmenu
+
+	
 .PHONY: clean
 
 clean:
