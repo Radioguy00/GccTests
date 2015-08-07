@@ -108,7 +108,32 @@ OBJ_MEN = $(patsubst %, $(OBJDIR)/%, $(_OBJ_MEN))
 menu_test: $(OBJ_MEN)
 	$(CC) -g -L $(LIBDIR) -o $@ $^ $(LINKFLAGS) $(LIBS)  -lncurses	-lmenu
 
-	
+############ Menu2 (menu in a specified window)
+
+_OBJ_MEN2 = menu_test2.o
+OBJ_MEN2 = $(patsubst %, $(OBJDIR)/%, $(_OBJ_MEN2))
+
+menu_test2: $(OBJ_MEN2)
+	$(CC) -g -L $(LIBDIR) -o $@ $^ $(LINKFLAGS) $(LIBS)  -lncurses	-lmenu
+
+############ Menu3 (menu in a specified window)
+
+_OBJ_MEN3 = menu_test3.o
+OBJ_MEN3 = $(patsubst %, $(OBJDIR)/%, $(_OBJ_MEN3))
+
+menu_test3: $(OBJ_MEN3)
+	$(CC) -g -L $(LIBDIR) -o $@ $^ $(LINKFLAGS) $(LIBS)  -lncurses	-lmenu
+
+############ Menu4 (menu in a specified window)
+
+_OBJ_MEN4 = menu_test4.o
+OBJ_MEN4 = $(patsubst %, $(OBJDIR)/%, $(_OBJ_MEN4))
+
+menu_test4: $(OBJ_MEN4)
+	$(CC) -g -L $(LIBDIR) -o $@ $^ $(LINKFLAGS) $(LIBS)  -lncurses	-lmenu
+
+
+
 .PHONY: clean
 
 clean:
